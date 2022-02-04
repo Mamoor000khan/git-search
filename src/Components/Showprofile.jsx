@@ -8,7 +8,6 @@ import InputBase from '@material-ui/core/InputBase';
 
 import Button from '@material-ui/core/Button';
 import SearchIcon from '@material-ui/icons/Search';
-import { SettingsBluetoothTwoTone } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -16,8 +15,6 @@ const useStyles = makeStyles((theme) => ({
       marginTop: '100px',
       display:'flex',
       justifyContent:'center'
-      // marginLeft:'40px',
-      // marginRight:'80px'
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -67,11 +64,9 @@ function Showprofile() {
     
     const [userName,setUserName] = useState("");
     const [data,setData] = useState({});
-    
-
     const onChangeHandler =(e)=>{
         setUserName(e.target.value);
-    }
+      }
 
     const onSubmitHandler =(e)=>{
         e.preventDefault();
@@ -80,10 +75,9 @@ function Showprofile() {
           return response.json();
         }).then((originalData)=>{
           if(originalData){
-            setData(originalData,  );
-              
-          }
-        })
+            setData(originalData,);
+        }
+      })
     }
     return (
         <>
@@ -117,45 +111,4 @@ function Showprofile() {
     </> 
   );
 }
-           
-     
-
-
-
-
-        {/* <div className={classes.grow} >
-            
-            <AppBar position="static" style={{width:'896px', height:'60px', borderRadius:'12px', backgroundColor:'rgba(37, 40, 47,1)'}}>
-                
-            <Toolbar >
-                    <div className={classes.search}>
-                        <form id="myform" autoComplete='off' onSubmit={onSubmitHandler}>
-                        
-                         <div  className={classes.search}>
-                         <SearchIcon color="primary"/>
-                          <input classes={{
-                                  root: classes.inputRoot,
-                                  input: classes.inputInput,
-              }} placeholder="Github username" type={userName} id="w"  onChange={onChangeHandler}/>
-                  
-                        </div>
-                        <div className="col-lg-3 col-sm-12 my-2 form-group">
-                            <button className="btn btn-primary btn-block w-100 btn-lg">Search</button>
-                        </div>
-      
-                        </form>
-              
-                    </div>
-
-
-               
-                </Toolbar>
-            </AppBar>
-        </div>
-        <DisplayProfile data={data}></DisplayProfile>
-        </>
-
-    )
-} */}
-
-export default Showprofile;
+  export default Showprofile;

@@ -34,25 +34,23 @@ export default function HeadingTop() {
   return (
     <div className={classes.root}>
       <Grid style={{width:'947px'}}>  
-      <Grid style={{display:'flex', justifyContent:'space-between'}}>
-        <Grid item xs={4} className={classes.heading} style={{ color:'#fff' }}>
-          devfinder
-        </Grid>
-        <Grid item xs={4} style={{display: 'flex', justifyContent: 'space-evenly'}}>
+        <Grid style={{display:'flex', justifyContent:'space-between'}}>
+          <Grid item xs={4} className={classes.heading} style={{ color:'#fff' }}>
+            devfinder
+          </Grid>
           
-          <Grid item xs={2} className={classes.title} style={{ color:'#fff'}}>
-         LIGHT
+         <Grid item xs={4} style={{display: 'flex', justifyContent: 'space-evenly'}}>
+           <Grid item xs={2} className={classes.title} style={{ color:'#fff'}}>
+             LIGHT
+           </Grid>
+        
+          <Grid item xs={2}>
+            <WbSunnyIcon style={{color:'#fff'}}/>
+          </Grid>
         </Grid>
-        <Grid item xs={2}>
-          <WbSunnyIcon style={{color:'#fff'}}/>
-        </Grid>
-        </Grid>
-
-        </Grid>
-        </Grid>
-       
-      
-     
-    </div>
+      </Grid>
+    </Grid>
+  </div>
+  
   );
-}
+};

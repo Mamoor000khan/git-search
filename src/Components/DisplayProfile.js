@@ -11,14 +11,6 @@ import BusinessIcon from '@material-ui/icons/Business';
 // import Skeleton from '@material-ui/core/Skeleton';
 
 const useStyles = makeStyles((theme) => ({
-    paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-      backgroundColor:'red'
-    },
-    
-    
     root: {
       width:'100%',
       display:'flex',
@@ -37,6 +29,8 @@ const useStyles = makeStyles((theme) => ({
       fontFamily:'Heebo',
       fontWeight: 700,
       color:'#fff',
+      marginRight: '320px', 
+      marginTop: '45px'
     },
     expand: {
       transform: 'rotate(0deg)',
@@ -59,68 +53,90 @@ const useStyles = makeStyles((theme) => ({
         fontFamily:'Heebo',
         fontWeight: 200,
         color:'#fff',
-    }
+        textAlign:'center',
+        marginTop:'10px', 
+    },
+    header:{
+      display: 'flex', 
+      justifyContent: 'space-between',
+      width: '100%'
+    },
+
+    joinng:{
+      marginRight: '35px', 
+      marginTop: '50px', 
+      color:'#fff'
+    },
+
+    form:{
+      display:'flex', 
+      justifyContent:'space-evenly',
+      marginTop:'35px',
+      marginLeft:'120px' 
+    },
   }));
 
 function DisplayProfile({data}) {
     const classes = useStyles();
      return (
         <div className={classes.root}>
-             {/* <Skeleton> */}
-            <Card className={classes.card} >
-            
-                <div style={{display: 'flex', justifyContent: 'space-between',width: '100%'}}>
-                    <Avatar className={classes.avatar}> 
-                    <img alt='' src={data.avatar_url} className="rounded" width='155px'/> 
-                  </Avatar>
-                   
-                            
-        <Typography style={{marginRight: '320px', marginTop: '45px'}} 
-        className={classes.media}> <p>{data.login}</p> 
-        <p style={{fontSize:'20px'}}>{data.bio}</p></Typography>
-        {/* <Typography className={classes.media}> {data.bio} </Typography> */}
-
-        <Typography style={{marginRight: '35px', marginTop: '50px', color:'#fff'}}>{data.created}</Typography>
-        </div>
-                   
-    <form style={{display:'flex', justifyContent:'space-evenly',marginTop:'35px',marginLeft:'120px' }}>
-      <Grid container spacing={3} style={{textAlign:'center', width:'600px', height:'75px', borderRadius: '4px',backgroundColor:'rgba(28, 21, 32, 1)', color:'#fff'}} >
-      <Grid item xs={4} >
-        <span className="articles">Repo</span> <p className="number1">{data.public_repos}</p>
-    </Grid>
-    <Grid item xs={4} >
-    <span className="followers">Followers</span> <p className="number2">{data.followers}</p>
-    </Grid>
-    <Grid item xs={4} >
-    <span className="rating">following</span> <p className="number3">{data.following}</p>
-    </Grid>
-   </Grid>
-</form>
-
-   <div style={{display:'flex', justifyContent:'center', marginTop:'25px'}}>
-    <Grid container spacing={3} style={{width:'620px',color:'#fff',textAlign:'center',marginTop:'10px'}} >
-    <Grid item xs={6} className={classes.feature} style={{textAlign:'center',marginTop:'10px', color:'#fff'}}>
-    
-    <p className="number4"> <LocationOnIcon/> {data.location}</p>
-    </Grid>
-    <Grid item xs={6}>
-    <p className="number5" style={{marginTop:'10px'}}> <TwitterIcon/> {data.twitter}</p>
-    </Grid>
-    <Grid item xs={6}>
-    <p className="number6"><GitHubIcon/> {data.blog}</p>
-    </Grid>
-    <Grid item xs={6}>
-    <p className="number7"><BusinessIcon/> {data.company}</p>
-    
-    </Grid>
-  
-    </Grid>
-    </div>                 
+          <Card className={classes.card} >
+             <div className={classes.header}>
+                <Avatar className={classes.avatar}> 
+                  <img alt='' src={data.avatar_url} className="rounded" width='155px'/> 
+                </Avatar>
                 
-            </Card>
-            {/* </Skeleton> */}
-        </div>
-    )
-}
+                <Typography className={classes.media}> 
+                   <p>{data.login}</p> 
+                   <p style={{fontSize:'20px'}}
+                    >{data.bio}</p>
+                </Typography>
+        
+                <Typography className={classes.joining}>{data.created}</Typography>
+             </div>
+          
+          <form className={classes.form}>
+               <Grid container spacing={3} style={{textAlign:'center', width:'600px', height:'75px', borderRadius: '4px',backgroundColor:'rgba(28, 21, 32, 1)', color:'#fff'}} >
+                 <Grid item xs={4} >
+                  <span className="articles">Repo</span> 
+                   <p className="number1">{data.public_repos}</p>
+                 </Grid>
+                 
+                 <Grid item xs={4} >
+                   <span className="followers">Followers</span> 
+                    <p className="number2">{data.followers}</p>
+                 </Grid>
+                 
+                 <Grid item xs={4} >
+                  <span className="rating">following</span> 
+                    <p className="number3">{data.following}</p>
+                 </Grid>
+              </Grid>
+           </form>
 
+          <div style={{display:'flex', justifyContent:'center', marginTop:'25px'}}>
+           <Grid container spacing={3} style={{width:'620px',color:'#fff',textAlign:'center',marginTop:'10px'}} >
+             <Grid item xs={6} className={classes.feature} >
+                <p className="number4"> <LocationOnIcon/> {data.location}</p>
+             </Grid>
+             
+             <Grid item xs={6}>
+                <p className="number5" style={{marginTop:'10px'}}> <TwitterIcon/> 
+                {data.twitter}</p>
+             </Grid>
+    
+             <Grid item xs={6}>
+                <p className="number6"><GitHubIcon/> {data.blog}</p>
+             </Grid>
+    
+             <Grid item xs={6}>
+                <p className="number7"><BusinessIcon/> {data.company}</p>
+             </Grid>
+          </Grid>
+       </div>                 
+    </Card>
+  </div>
+    
+  );
+};
 export default DisplayProfile
